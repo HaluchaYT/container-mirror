@@ -1,0 +1,29 @@
+name: Mirror MinIO to GHCR
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * 1"
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    strategy:
+      matrix:
+        include:
+          - src: quay.io/minio/minio:latest
+            dst: ghcr.io/haluchayt/minio:latest
+          - src: quay.io/minio/mc:latest
+            dst: ghcr.io/haluchayt/mc:latest
+    steps:
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Copy ${{ matrix.src }} -> ${{ matrix.dst }}
+        run: |
+          docker pull "${{ matrix.src }}"
+          docker tag "${{ matrix.src }}" "${{ matrix.dst }}"
+          docker push "${{ matrix.dst }}"
