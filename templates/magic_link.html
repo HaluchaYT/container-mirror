@@ -1,16 +1,17 @@
 <!doctype html>
-<html><body style="margin:0;background:#f4f5f9;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0f1424">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f5f9;padding:32px 12px">
-<tr><td align="center">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:480px;background:#ffffff;border:1px solid #e6e8ee;border-radius:14px;padding:32px">
-<tr><td style="font-size:13px;color:#5c6478;letter-spacing:.08em;text-transform:uppercase">{{ .SiteURL }}</td></tr>
-<tr><td style="padding-top:10px;font-size:22px;font-weight:800">Your sign-in code</td></tr>
-<tr><td style="padding-top:10px;font-size:15px;line-height:1.55;color:#3d4358">Enter the code below on the sign-in page, or click the button, to sign in to <strong>{{ .SiteURL }}</strong>.</td></tr>
-<tr><td style="padding-top:22px;font-size:12px;color:#5c6478;letter-spacing:.08em;text-transform:uppercase">Your one-time code</td></tr>
-<tr><td style="padding-top:6px;font-size:34px;font-weight:800;letter-spacing:.35em;font-family:SFMono-Regular,Consolas,Menlo,monospace">{{ .Token }}</td></tr>
-<tr><td style="padding-top:22px;font-size:14px;color:#3d4358">Or use the link instead:</td></tr>
-<tr><td style="padding-top:12px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#0f1424;color:#ffffff;text-decoration:none;font-weight:700;font-size:15px;padding:13px 22px;border-radius:10px">Sign in</a></td></tr>
-<tr><td style="padding-top:22px;font-size:12px;line-height:1.5;color:#8a94a8">This code and link expire shortly and can be used once. If you didn't request this, you can ignore this email.</td></tr>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background:#ffffff;color:#1a1a1a;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0">Your {{ .SiteURL }} sign-in code is {{ .Token }}. It expires shortly.</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="padding:28px 16px">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:460px">
+<tr><td style="padding-bottom:18px;color:#1a1a1a;font-size:15px">Hi,</td></tr>
+<tr><td style="padding-bottom:16px;color:#1a1a1a">Here's your sign-in code. Enter this code to continue:</td></tr>
+<tr><td style="padding:6px 0 22px"><span style="font-family:'SFMono-Regular',Consolas,Menlo,monospace;font-size:30px;font-weight:600;letter-spacing:6px;color:#111111">{{ .Token }}</span></td></tr>
+<tr><td style="padding-bottom:22px;color:#444444;font-size:14px">Prefer a link? <a href="{{ .ConfirmationURL }}" style="color:#1a1a1a">Click here to sign in</a>.</td></tr>
+<tr><td style="padding-bottom:8px;color:#767676;font-size:13px">This code expires shortly and can only be used once.</td></tr>
+<tr><td style="padding-bottom:22px;color:#767676;font-size:13px">If you didn't try to sign in, you can safely ignore this email — no action is needed.</td></tr>
+<tr><td style="border-top:1px solid #ececec;padding-top:16px;color:#9a9a9a;font-size:12px">{{ .SiteURL }}</td></tr>
 </table>
 </td></tr></table>
 </body></html>
